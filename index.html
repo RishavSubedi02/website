@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishav Subedi Portfolio</title>
+    <style>
+        /* Basic reset and style for body */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #1a237e;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 35, 126, 0.9); /* Semi-transparent background */
+        }
+
+        .header h2 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #ffeb3b; /* Yellow highlight on hover */
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Hidden navigation for mobile */
+        .nav-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            right: 30px;
+            background-color: rgba(26, 35, 126, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .nav-mobile a {
+            font-size: 18px;
+        }
+
+        /* Hero section styles */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        /* Media Queries for smaller screens */
+        @media (max-width: 768px) {
+            .header {
+                justify-content: space-between;
+            }
+
+            .nav {
+                display: none; /* Hide the regular navigation */
+            }
+
+            .hamburger {
+                display: flex; /* Show the hamburger menu */
+            }
+
+            /* Show mobile navigation */
+            .nav-mobile {
+                display: none;
+                flex-direction: column;
+            }
+
+            .nav-mobile.open {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+        }
+
+        /* Animation canvas */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h2>Rishav Subedi</h2>
+        <div class="nav">
+            <a href="#">Projects</a>
+            <a href="#">About Me</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="navMobile" style="top: 0; right: 0;"></div>
+            <a href="#">Projects</a>
+            <a href="#">About Me</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Welcome to My Portfolio</h1>
+            <p>Engineering Student | Mechanical Enthusiast | Developer</p>
+        </div>
+    </section>
+
+    <!-- Animation Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- JavaScript for Particle Animation and Menu Toggle -->
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray = [];
+        let numberOfParticles = getParticleCount(); // Get number of particles based on screen size
+
+        // Resize the canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            numberOfParticles = getParticleCount(); // Adjust particle count on resize
+            init(); // Reinitialize particles on resize
+        });
+
+        // Get Particle Count based on screen size
+        function getParticleCount() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 600) {
+                return 40;  // Fewer particles for small screens (mobile)
+            } else if (screenWidth <= 1024) {
+                return 70;  // Moderate particles for tablets
+            } else {
+                return 100; // Full number of particles for desktop
+            }
+        }
+
+        // Create particle object
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+
+            // Draw individual particle
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = '#ffffff';
+                ctx.fill();
+            }
+
+            // Update particle movement
+            update() {
+                if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+                    this.directionY = -this.directionY;
+                }
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        // Initialize particles
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 5) + 1;
+                let x = Math.random() * (window.innerWidth - size * 2) + size;
+                let y = Math.random() * (window.innerHeight - size * 2) + size;
+                let directionX = (Math.random() * 0.4) - 0.2;
+                let directionY = (Math.random() * 0.4) - 0.2;
+                let color = '#ffffff';
+
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        // Menu toggle function
+        function toggleMenu() {
+            const navMobile = document.getElementById('navMobile');
+            navMobile.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
