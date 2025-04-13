@@ -8,8 +8,8 @@
     <meta name="author" content="Rishav Subedi">
     <meta property="og:title" content="Rishav Subedi | Mechanical Engineer">
     <meta property="og:description" content="Discover innovative engineering projects.">
-    <meta property="og:image" content="https://yourdomain.com/images/og-image.webp">
-    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com.np/images/og-image.webp">
+    <meta property="og:url" content="https://subedirishav.com.np">
     <title>Rishav Subedi</title>
     <link rel="icon" type="image/webp" href="favicon.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,6 +177,15 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative; /* For layering content over background */
+        }
+
+        .project__card--cnc {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('cnc-bg.webp') no-repeat center/cover;
+        }
+
+        .project__card--arv {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('arv-bg.webp') no-repeat center/cover;
         }
 
         .project__card:hover {
@@ -186,6 +195,8 @@
 
         .project__content {
             padding: 1.5rem;
+            position: relative; /* Ensure content is above background */
+            z-index: 1; /* Keep text readable */
         }
 
         .project__title {
@@ -335,23 +346,23 @@
             <div class="container">
                 <h2 class="section__title">Projects</h2>
                 <div class="projects__grid">
-                    <article class="project__card" itemscope itemtype="http://schema.org/CreativeWork">
+                    <article class="project__card project__card--cnc" itemscope itemtype="http://schema.org/CreativeWork">
                         <div class="project__content">
                             <h3 class="project__title" itemprop="name">CNC</h3>
                             <p class="project__tech"></p>
                             <p itemprop="description">A pre-programmed computer controlled machine for precise and automated tasks.</p>
                             <div class="project__links">
-                                <a href="https://github.com/yourusername/iot-project" class="button" target="_blank" rel="noopener">View Code</a>
+                                <a href="https://github.com/yourusername/iot-project" class="button" target="_blank" rel="noopener">View </a>
                             </div>
                         </div>
                     </article>
-                    <article class="project__card" itemscope itemtype="http://schema.org/CreativeWork">
+                    <article class="project__card project__card--arv" itemscope itemtype="http://schema.org/CreativeWork">
                         <div class="project__content">
                             <h3 class="project__title" itemprop="name">ARV</h3>
                             <p class="project__tech">ROS | Computer Vision | IoT sensors</p>
                             <p itemprop="description">A robot for dynamic environment navigation using sensor fusion.</p>
                             <div class="project__links">
-                                <a href="https://github.com/yourusername/robot-project" class="button" target="_blank" rel="noopener">View Code</a>
+                                <a href="https://github.com/yourusername/robot-project" class="button" target="_blank" rel="noopener">View </a>
                             </div>
                         </div>
                     </article>
@@ -368,7 +379,6 @@
                     <li class="skills__item">IoT Systems</li>
                     <li class="skills__item">Programming</li>
                     <li class="skills__item">Embedded Systems</li>
-                    
                 </ul>
             </div>
         </section>
@@ -379,6 +389,14 @@
                 <div class="contact__info">
                     <p>Connect with me on social platforms:</p>
                     <div class="contact__links">
+                        <a href="mailto:your.email@gmail.com" class="contact__link">
+                            <svg class="contact__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            Gmail
+                        </a>
+                        <a href="https://instagram.com/your_instagram_handle" class="contact__link" target="_blank" rel="noopener">
+                            <svg class="contact__icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 7 1.25 1.25 0 0116 5.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+                            Instagram
+                        </a>
                         <a href="https://github.com/RishavSubedi02" class="contact__link" target="_blank" rel="noopener">
                             <svg class="contact__icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                             GitHub
@@ -397,6 +415,12 @@
         <div class="container">
             <p>© <span id="year"></span> Rishav Subedi</p>
             <div class="social__links">
+                <a href="notaboringengineer@gmail.com" aria-label="Gmail">
+                    <svg class="social__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/rishav_subedi" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg class="social__icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 7 1.25 1.25 0 0116 5.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+                </a>
                 <a href="https://github.com/RishavSubedi02" target="_blank" rel="noopener" aria-label="GitHub">
                     <svg class="social__icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                 </a>
