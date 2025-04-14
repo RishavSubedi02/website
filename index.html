@@ -3,31 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rishav Subedi">
-    <meta name="keywords" content="mechanical engineer, IoT, AI, Robotics">
+    <meta name="description" content="Rishav Subedi - Mechanical Engineer specializing in IoT, AI, and Robotics">
+    <meta name="keywords" content="mechanical engineer, IoT, AI, Robotics, CNC, ARV, CAD">
     <meta name="author" content="Rishav Subedi">
     <meta property="og:title" content="Rishav Subedi | Mechanical Engineer">
-    <meta property="og:description" content="Discover innovative engineering projects.">
-    <meta property="og:image" content="https://yourdomain.com.np/images/og-image.webp">
+    <meta property="og:description" content="Innovative engineering projects combining mechanical systems with digital technologies">
+    <meta property="og:image" content="https://subedirishav.com.np/images/og-image.webp">
     <meta property="og:url" content="https://subedirishav.com.np">
     <title>Rishav Subedi</title>
     <link rel="icon" type="image/webp" href="favicon.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         /* CSS Variables */
+        :_Write a comment to indicate where the Instagram SVG path was sourced from */
         :root {
-            --primary: #1e3a8a; /* Deep blue for text and accents */
-            --secondary: #38bdf8; /* Teal for gradients */
-            --background: #f1f5f9; /* Fallback background */
-            --surface: #ffffff; /* White for cards */
-            --text: #0f172a; /* Dark slate for text */
-            --text-muted: #64748b; /* Muted for secondary text */
-            --gradient-start: #fbc2eb; /* Pink from example */
-            --gradient-end: #a6c1ee; /* Blue from example */
-            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --primary: #2563eb; /* Vibrant blue */
+            --primary-dark: #1e40af; /* Darker blue */
+            --secondary: #7c3aed; /* Purple */
+            --accent: #10b981; /* Emerald */
+            --background: #f8fafc; /* Light gray */
+            --surface: #ffffff; /* White */
+            --text: #1e293b; /* Dark slate */
+            --text-muted: #64748b; /* Gray */
+            --gradient-start: #2563eb; /* Blue */
+            --gradient-end: #7c3aed; /* Purple */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 0.5rem;
+            --max-width: 1200px;
+        }
+
+        /* Dark mode variables */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #3b82f6;
+                --primary-dark: #1e40af;
+                --secondary: #8b5cf6;
+                --accent: #10b981;
+                --background: #0f172a;
+                --surface: #1e293b;
+                --text: #f8fafc;
+                --text-muted: #94a3b8;
+                --gradient-start: #3b82f6;
+                --gradient-end: #8b5cf6;
+            }
         }
 
         /* Base Styles */
@@ -45,9 +68,16 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text);
-            background: linear-gradient(to top, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background-color: var(--background);
             line-height: 1.6;
-            transition: background 0.5s ease;
+            transition: background-color 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
         }
 
         a {
@@ -68,21 +98,43 @@
 
         /* Utilities */
         .container {
-            max-width: 960px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
 
         .section {
-            padding: 4rem 0;
+            padding: 6rem 0;
+            position: relative;
         }
 
         .section__title {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 600;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
             color: var(--primary);
+        }
+
+        .section__title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4rem;
+            height: 0.25rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 0.125rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         /* Header */
@@ -91,153 +143,455 @@
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .header {
+                background: rgba(30, 41, 59, 0.9);
+            }
+        }
+
+        .header--scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
         }
 
         .header__nav {
             display: flex;
-            justify-content: center;
             gap: 1.5rem;
         }
 
         .nav__link {
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
+            border-radius: var(--border-radius);
+            position: relative;
         }
 
-        .nav__link:hover,
+        .nav__link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+
+        .nav__link:hover::before,
+        .nav__link--active::before {
+            width: 100%;
+        }
+
         .nav__link--active {
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
-            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            width: 1.5rem;
+            height: 0.125rem;
+            background: var(--primary);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 0.125rem;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .hamburger::before {
+            top: -0.5rem;
+        }
+
+        .hamburger::after {
+            top: 0.5rem;
+        }
+
+        .menu-toggle.active .hamburger {
+            background: transparent;
+        }
+
+        .menu-toggle.active .hamburger::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.active .hamburger::after {
+            top: 0;
+            transform: rotate(-45deg);
         }
 
         /* Hero */
         .hero {
             height: 100vh;
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600"%3E%3Cpath fill="%231e3a8a" fill-opacity="0.2" d="M0,600L48,560C96,520,192,440,288,400C384,360,480,360,576,360C672,360,768,360,864,360C960,360,1056,360,1152,360C1248,360,1344,360,1392,360L1440,360L1440,600L1392,600C1344,600,1248,600,1152,600C1056,600,960,600,864,600C768,600,672,600,576,600C480,600,384,600,288,600C192,600,96,600,48,600L0,600Z"%3E%3C/path%3E%3C/svg%3E') no-repeat bottom/cover, linear-gradient(rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.7)), url('himalayas-bg.webp') no-repeat center/cover;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(109, 144, 221, 0.9), rgba(124, 58, 237, 0.9)), 
+                        url('https://raw.githubusercontent.com/RishavSubedi02/website/refs/heads/main/cad-gears-bg.webp') no-repeat center/cover;
             color: #fff;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5rem;
+            background: linear-gradient(to top, var(--background), transparent);
+            z-index: 1;
+        }
+
         .hero__content {
-            max-width: 36rem;
+            max-width: 48rem;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+
+        .hero__name-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero__photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-md);
         }
 
         .hero__name {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            line-height: 1.1;
         }
 
         .hero__profession {
-            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
             font-weight: 400;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
 
         .hero__tagline {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
+            max-width: 36rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Buttons */
         .button {
             display: inline-flex;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
+            align-items нему center;
+            justify-content: center;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--border-radius);
             font-weight: 600;
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
-            color: #fff;
-            border: none;
             transition: var(--transition);
             cursor: pointer;
+            text-align: center;
+            white-space: nowrap;
         }
 
-        .button:hover {
-            background: linear-gradient(135deg, #818cf8, #38bdf8);
+        .button--primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+        }
+
+        .button--primary:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .button--secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .button--secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.8);
             transform: translateY(-2px);
         }
 
+        .button__icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+        }
+
         /* Projects */
+        .projects {
+            background-color: var(--background);
+        }
+
         .projects__grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .project__card {
             background: var(--surface);
-            border-radius: 0.5rem;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
-            position: relative; /* For layering content over background */
-        }
-
-        .project__card--cnc {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('cnc-bg.webp') no-repeat center/cover;
-        }
-
-        .project__card--arv {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('arv-bg.webp') no-repeat center/cover;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .project__card:hover {
-            transform: translateY(-0.25rem);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-0.5rem);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project__image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .project__image {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
         }
 
         .project__content {
             padding: 1.5rem;
-            position: relative; /* Ensure content is above background */
-            z-index: 1; /* Keep text readable */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project__title {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
+            margin-bottom: 0.75rem;
             color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
         .project__tech {
-            font-size: 0.875rem;
-            color: var(--secondary);
-            margin-bottom: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech__pill {
+            background: rgba(98, 207, 221, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project__description {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            flex-grow: 1;
         }
 
         .project__links {
-            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
         }
 
         /* Skills */
-        .skills__list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            justify-content: center;
-            list-style: none;
+        .skills {
+            position: relative;
         }
 
-        .skills__item {
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+            z-index: -1;
+        }
+
+        .skills__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill__category {
             background: var(--surface);
-            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .skill__category:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill__icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .skill__list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill__item {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.375rem 0.75rem;
             border-radius: 0.25rem;
             font-size: 0.875rem;
-            box-shadow: var(--shadow);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .skill__item:hover {
+            background: rgba(37, 99, 235, 0.2);
+            transform: scale(1.05);
         }
 
         /* Contact */
-        .contact__info {
-            max-width: 36rem;
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h30v30H0V0zm30 30h30v30H30V30z" fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"/%3E%3C/svg%3E');
+            z-index: 0;
+        }
+
+        .contact__content {
+            position: relative;
+            z-index: 1;
+            max-width: 48rem;
             margin: 0 auto;
             text-align: center;
+        }
+
+        .contact__title {
+            color: #fff;
+        }
+
+        .contact__title::after {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact__description {
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .contact__email {
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .contact__email:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         .contact__links {
@@ -253,47 +607,209 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .contact__icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            fill: var(--primary);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
             transition: var(--transition);
         }
 
-        .contact__link:hover .contact__icon {
-            fill: var(--secondary);
+        .contact__link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .contact__icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: currentColor;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 2rem 0;
-            background: var(--primary);
-            color: #fff;
+            padding: 3rem 0;
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer__logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer__copyright {
+            margin-bottom: 1rem;
         }
 
         .social__links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 1rem;
+        }
+
+        .social__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: rgba(78, 127, 233, 0.1);
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .social__link:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         .social__icon {
             width: 1.25rem;
             height: 1.25rem;
-            fill: #fff;
-            transition: var(--transition);
         }
 
-        .social__links a:hover .social__icon {
-            fill: var(--secondary);
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(1rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .section {
+                padding: 4rem 0;
+            }
+
+            .section__title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .header__nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--surface);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .header__nav {
+                    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+                }
+            }
+
+            .header__nav.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero__buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero__photo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section__title {
+                font-size: 1.75rem;
+            }
+
             .hero__name {
                 font-size: 2.5rem;
             }
@@ -302,67 +818,100 @@
                 font-size: 1.25rem;
             }
 
-            .section__title {
-                font-size: 1.75rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header__nav {
-                gap: 0.5rem;
+            .hero__tagline {
+                font-size: 1rem;
             }
 
-            .nav__link {
-                padding: 0.5rem;
-                font-size: 0.875rem;
+            .project__links {
+                flex-direction: column;
             }
 
-            .hero__name {
-                font-size: 2rem;
+            .contact__links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero__photo {
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="container header__nav" aria-label="Main navigation">
-            <a href="#home" class="nav__link nav__link--active">Home</a>
-            <a href="#projects" class="nav__link">Projects</a>
-            <a href="#skills" class="nav__link">Skills</a>
-            <a href="#contact" class="nav__link">Contact</a>
-        </nav>
+    <header class="header" id="header">
+        <div class="container header__content">
+            <a href="#home" class="header__logo">Rishav Subedi</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="header__nav" id="header-nav" aria-label="Main navigation">
+                <a href="#home" class="nav__link nav__link--active">Home</a>
+                <a href="#projects" class="nav__link">Projects</a>
+                <a href="#skills" class="nav__link">Skills</a>
+                <a href="#contact" class="nav__link">Contact</a>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section id="home" class="hero">
             <div class="container hero__content">
-                <h1 class="hero__name">Rishav Subedi</h1>
-                <p class="hero__profession">Mechanical Engineer | IoT & Robotics </p>
-                <p class="hero__tagline">Mechanical Mind, Digital Soul </p>
+                <div class="hero__name-container animate">
+                    <img src="https://raw.githubusercontent.com/RishavSubedi02/website/refs/heads/main/photo.jpg" alt="" class="hero__photo">
+                    <h1 class="hero__name">Rishav Subedi</h1>
+                </div>
+                <p class="hero__profession animate delay-1">Mechanical Engineer | IoT & Robotics </p>
+                <p class="hero__tagline animate delay-2">Bridging mechanical systems with digital innovation to create intelligent solutions</p>
+                <div class="hero__buttons animate delay-3">
+                    <a href="#projects" class="button button--primary">View My Work</a>
+                    <a href="#contact" class="button button--secondary">Contact Me</a>
+                </div>
             </div>
         </section>
 
         <section id="projects" class="section projects">
             <div class="container">
-                <h2 class="section__title">Projects</h2>
+                <h2 class="section__title">Featured Projects</h2>
                 <div class="projects__grid">
-                    <article class="project__card project__card--cnc" itemscope itemtype="http://schema.org/CreativeWork">
+                    <article class="project__card animate">
+                        <img src="https://raw.githubusercontent.com/RishavSubedi02/website/refs/heads/main/cnc.webp" alt="CNC Machine" class="project__image">
                         <div class="project__content">
-                            <h3 class="project__title" itemprop="name">CNC</h3>
-                            <p class="project__tech"></p>
-                            <p itemprop="description">A pre-programmed computer controlled machine for precise and automated tasks.</p>
+                            <h3 class="project__title">CNC Machine </h3>
+                            <div class="project__tech">
+                                <span class="tech__pill">CAD</span>
+                                <span class="tech__pill">Fabrication</span>
+                                <span class="tech__pill">Precision Engineering</span>
+                            </div>
+                            <p class="project__description">Designed and built a computer numerical control (CNC) machine capable of precise automated tasks. This project involved mechanical design, electronics integration, and software programming for motion control.</p>
                             <div class="project__links">
-                                <a href="https://github.com/yourusername/iot-project" class="button" target="_blank" rel="noopener">View </a>
+                                <a href="https://github.com/Rishavsubedi02" class="button button--primary">
+                                    <svg class="button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    View Project
+                                </a>
                             </div>
                         </div>
                     </article>
-                    <article class="project__card project__card--arv" itemscope itemtype="http://schema.org/CreativeWork">
+                    <article class="project__card animate delay-1">
+                        <img src="https://raw.githubusercontent.com/RishavSubedi02/website/refs/heads/main/arv.webp" alt="Autonomous Robot" class="project__image">
                         <div class="project__content">
-                            <h3 class="project__title" itemprop="name">ARV</h3>
-                            <p class="project__tech">ROS | Computer Vision | IoT sensors</p>
-                            <p itemprop="description">A robot for dynamic environment navigation using sensor fusion.</p>
+                            <h3 class="project__title">Autonomous Robot Vehicle</h3>
+                            <div class="project__tech">
+                                <span class="tech__pill">ROS</span>
+                                <span class="tech__pill">Computer Vision</span>
+                                <span class="tech__pill">Sensor Fusion</span>
+                                <span class="tech__pill">IoT</span>
+                            </div>
+                            <p class="project__description">Developed an autonomous robot capable of dynamic environment navigation using sensor fusion and computer vision. The system integrates multiple sensors and machine learning algorithms for real-time decision making.</p>
                             <div class="project__links">
-                                <a href="https://github.com/yourusername/robot-project" class="button" target="_blank" rel="noopener">View </a>
+                                <a href="https://github.com/RishavSubedi02" class="button button--primary">
+                                    <svg class="button__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    View Project
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -372,38 +921,86 @@
 
         <section id="skills" class="section skills">
             <div class="container">
-                <h2 class="section__title">Skills</h2>
-                <ul class="skills__list">
-                    <li class="skills__item">CAD</li>
-                    <li class="skills__item">Design and Fabrication</li>
-                    <li class="skills__item">IoT Systems</li>
-                    <li class="skills__item">Programming</li>
-                    <li class="skills__item">Embedded Systems</li>
-                </ul>
+                <h2 class="section__title">Technical Skills</h2>
+                <div class="skills__grid">
+                    <div class="skill__category animate">
+                        <h3 class="skill__title">
+                            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            Mechanical Design
+                        </h3>
+                        <ul class="skill__list">
+                            <li class="skill__item">CAD </li>
+                            <li class="skill__item">3D Printing</li>
+                            <li class="skill__item">CNC Machining</li>
+                            <li class="skill__item">GD&T</li>
+                        </ul>
+                    </div>
+                    <div class="skill__category animate delay-1">
+                        <h3 class="skill__title">
+                            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            IoT & Robotics
+                        </h3>
+                        <ul class="skill__list">
+                            <li class="skill__item">ROS (Robot Operating System)</li>
+                            <li class="skill__item">Embedded Systems</li>
+                            <li class="skill__item">Sensor Integration</li>
+                            <li class="skill__item">Arduino/Raspberry Pi</li>
+                            <li class="skill__item">Control Systems</li>
+                        </ul>
+                    </div>
+                    <div class="skill__category animate delay-2">
+                        <h3 class="skill__title">
+                            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            Programming
+                        </h3>
+                        <ul class="skill__list">
+                            <li class="skill__item">Python</li>
+                            <li class="skill__item">C/C++</li>
+                            <li class="skill__item">web dev</li>
+                            <li class="skill__item">Arduino</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="contact" class="section contact">
             <div class="container">
-                <h2 class="section__title">Contact</h2>
-                <div class="contact__info">
-                    <p>Connect with me on social platforms:</p>
+                <div class="contact__content">
+                    <h2 class="section__title contact__title">Get In Touch</h2>
+                    <p class="contact__description">I'm currently looking for new opportunities in mechanical engineering with a focus on IoT and robotics. Whether you have a question or just want to say hi!</p>
+                    <a href="mailto:notaboringengineer@gmail.com" class="contact__email">notaboringengineer@gmail.com</a>
                     <div class="contact__links">
-                        <a href="mailto: notaboringengineer@gmail.com" class="contact__link">
-                            <svg class="contact__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                            Gmail
+                        <a href="mailto:notaboringengineer@gmail.com" class="contact__link">
+                            <svg class="contact__icon" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            Email Me
                         </a>
-                        <a href="https://www.instagram.com/rishav_subedi" class="contact__link" target="_blank" rel="noopener">
-                            <svg class="contact__icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 7 1.25 1.25 0 0116 5.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg>
-                            Instagram
+                        <a href="https://www.linkedin.com/in/rishav-subedi-b451a7343" class="contact__link" target="_blank" rel="noopener noreferrer">
+                            <svg class="contact__icon" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/>
+                            </svg>
+                            LinkedIn
                         </a>
-                        <a href="https://github.com/RishavSubedi02" class="contact__link" target="_blank" rel="noopener">
-                            <svg class="contact__icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        <a href="https://github.com/rishavsubedi" class="contact__link" target="_blank" rel="noopener noreferrer">
+                            <svg class="contact__icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.564 9.564 0 0112 6.8c.85.004 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.56.94.56 1.54v2.29c0 .28.16.59.67.5A10.005 10.005 0 0022 12c0-5.52-4.48-10-10-10z"/>
+                            </svg>
                             GitHub
                         </a>
-                        <a href="https://www.linkedin.com/in/rishav-subedi-b451a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="contact__link" target="_blank" rel="noopener">
-                            <svg class="contact__icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            LinkedIn
+                        <a href="https://www.instagram.com/rishav_subedi" class="contact__link" target="_blank" rel="noopener noreferrer">
+                            <!-- Instagram SVG path sourced from Heroicons (https://heroicons.com/) -->
+                            <svg class="contact__icon" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.981-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.981-6.981-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            Instagram
                         </a>
                     </div>
                 </div>
@@ -412,93 +1009,125 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>© <span id="year"></span> Rishav Subedi</p>
+        <div class="container footer__content">
+            <a href="#home" class="footer__logo">Mechanical Mind, Digital Soul</a>
+            <p class="footer__copyright">© 2025 All rights reserved.</p>
             <div class="social__links">
-                <a href="notaboringengineer@gmail.com" aria-label="Gmail">
-                    <svg class="social__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="https://www.linkedin.com/in/rishav-subedi-b451a7343" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg class="social__icon" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/>
+                    </svg>
                 </a>
-                <a href="https://www.instagram.com/rishav_subedi" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg class="social__icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 7 1.25 1.25 0 0116 5.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+                <a href="https://github.com/rishavsubedi" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg class="social__icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.564 9.564 0 0112 6.8c.85.004 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.56.94.56 1.54v2.29c0 .28.16.59.67.5A10.005 10.005 0 0022 12c0-5.52-4.48-10-10-10z"/>
+                    </svg>
                 </a>
-                <a href="https://github.com/RishavSubedi02" target="_blank" rel="noopener" aria-label="GitHub">
-                    <svg class="social__icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                <a href="mailto:notaboringengineer@gmail.com" class="social__link" aria-label="Email">
+                    <svg class="social__icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/rishav-subedi-b451a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <svg class="social__icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <a href="https://www.instagram.com/rishav_subedi" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <!-- Instagram SVG path sourced from Heroicons (https://heroicons.com/) -->
+                    <svg class="social__icon" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.981-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.981-6.981-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
                 </a>
             </div>
         </div>
     </footer>
 
+    <a href="#home" class="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </a>
+
     <script>
-        // Set current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Scrollspy
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.nav__link');
+        // Header scroll effect
+        const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                if (window.scrollY >= section.offsetTop - 100) {
-                    current = section.getAttribute('id');
-                }
+            if (window.scrollY > 50) {
+                header.classList.add('header--scrolled');
+            } else {
+                header.classList.remove('header--scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const headerNav = document.getElementById('header-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            headerNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a nav link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                headerNav.classList.remove('active');
             });
-            navLinks.forEach(link => {
-                link.classList.remove('nav__link--active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('nav__link--active');
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav__link[href="#${sectionId}"]`);
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => link.classList.remove('nav__link--active'));
+                    navLink.classList.add('nav__link--active');
                 }
             });
         });
 
-        // Gradient scroll effect
-        const throttle = (func, limit) => {
-            let inThrottle;
-            return (...args) => {
-                if (!inThrottle) {
-                    func.apply(this, args);
-                    inThrottle = true;
-                    setTimeout(() => (inThrottle = false), limit);
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            };
-        };
+            });
+        });
 
-        const updateGradient = () => {
-            const scrollPosition = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollFraction = scrollPosition / docHeight;
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
 
-            // Define gradient stops
-            const gradients = [
-                { start: '#fbc2eb', end: '#a6c1ee' }, // Initial (pink to blue)
-                { start: '#a6c1ee', end: '#c4b5fd' }, // Projects (blue to purple)
-                { start: '#c4b5fd', end: '#d8b4fe' }, // Skills (purple to light purple)
-                { start: '#d8b4fe', end: '#fbc2eb' }  // Contact (light purple back to pink)
-            ];
-
-            // Calculate which gradient to use
-            const index = Math.min(
-                Math.floor(scrollFraction * gradients.length),
-                gradients.length - 1
-            );
-            const { start, end } = gradients[index];
-
-            document.body.style.background = `linear-gradient(to top, ${start}, ${end})`;
-        };
-
-        window.addEventListener('scroll', throttle(updateGradient, 100));
+        animateElements.forEach(element => {
+            element.style.animationPlayState = 'paused';
+            observer.observe(element);
+        });
     </script>
 </body>
 </html>
