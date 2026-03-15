@@ -3,9 +3,33 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>RISHAV SUBEDI</title>
+<title>Rishav Subedi - Mechanical Engineer | IoT & Robotics Specialist</title>
+<meta name="description" content="Rishav Subedi - Mechanical Engineer specializing in IoT, Robotics, and Autonomous Systems. Building CNC machines, autonomous robots, and bridging the mechanical with the digital."/>
+<meta name="keywords" content="Rishav Subedi, Mechanical Engineer, IoT, Robotics, CNC, Arduino, ROS, Nepal"/>
+<meta name="author" content="Rishav Subedi"/>
+<meta name="robots" content="index, follow"/>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Rishav Subedi - Mechanical Engineer | IoT & Robotics"/>
+<meta property="og:description" content="Mechanical Engineer specializing in IoT, Robotics, and Autonomous Systems. Building CNC machines and autonomous robots."/>
+<meta property="og:url" content="https://rishavsubedi02.github.io/website/"/>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Rishav Subedi - Mechanical Engineer | IoT & Robotics"/>
+<meta name="twitter:description" content="Mechanical Engineer specializing in IoT, Robotics, and Autonomous Systems."/>
+
+<!-- Preconnect to external domains for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+
+<!-- Fonts with display=swap for better loading -->
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=VT323&display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<!-- Defer non-critical JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
 <style>
 :root {
   --crt-green: #00ff41;
@@ -537,6 +561,31 @@ footer {
   #about::before, #projects::before, #skills::before, #contact::before { display: none; }
 }
 
+/* ── REDUCED MOTION ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-bg, .hero-scan { display: none; }
+  body::before { animation: none; }
+}
+
+/* ── H1 STYLING (semantic heading) ───────────────── */
+h1.hero-name {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: 4px;
+  color: var(--crt-green);
+  text-shadow: 0 0 20px rgba(0,255,65,0.6), 0 0 60px rgba(0,255,65,0.2);
+  margin-bottom: 6px;
+  opacity: 0; animation: fadeIn .5s .3s forwards;
+}
+
 @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
 </style>
 </head>
@@ -545,8 +594,8 @@ footer {
 <div class="cursor" id="cursor"></div>
 
 <!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#hero">RS<span>//</span>SYSTEMS</a>
+<nav role="navigation" aria-label="Main navigation">
+  <a class="nav-logo" href="#hero" aria-label="Home - RS Systems">RS<span>//</span>SYSTEMS</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -556,17 +605,17 @@ footer {
 </nav>
 
 <!-- ═══ HERO ═══════════════════════════════════════ -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-scan"></div>
+<section id="hero" aria-label="Hero section">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-scan" aria-hidden="true"></div>
   <div class="hero-inner">
 
     <div class="hero-left">
       <div class="hero-sys-id">SYSTEM ID: <span>RS-2026 // UNIT ACTIVE</span></div>
-      <div class="hero-name glow">RISHAV</div>
-      <div class="hero-name-2 glow-amber">SUBEDI</div>
+      <h1 class="hero-name glow">RISHAV</h1>
+      <div class="hero-name-2 glow-amber" aria-hidden="true">SUBEDI</div>
       <div class="hero-rank">DESIGNATION: <span>Mechanical Engineer · IoT · Robotics</span></div>
-      <div class="hero-typed-wrap">
+      <div class="hero-typed-wrap" aria-live="polite">
         <span id="typed"></span>
       </div>
       <div class="hero-btns">
@@ -636,8 +685,13 @@ footer {
 
     <div class="proj">
       <div class="proj-img-wrap">
-        <img src="https://raw.githubusercontent.com/RishavSubedi02/website/main/cnc.webp"
-          alt="CNC Machine" class="proj-img"
+        <img src="cnc.webp"
+          alt="CNC Machine - Custom built computer numerical control machine"
+          class="proj-img"
+          loading="lazy"
+          decoding="async"
+          width="600"
+          height="240"
           onerror="this.parentElement.style.background='#040f06'"/>
         <div class="proj-img-tint"></div>
         <div class="proj-scanline"></div>
@@ -658,8 +712,13 @@ footer {
 
     <div class="proj">
       <div class="proj-img-wrap">
-        <img src="https://raw.githubusercontent.com/RishavSubedi02/website/main/ARV.webp"
-          alt="Autonomous Robot Vehicle" class="proj-img"
+        <img src="ARV.webp"
+          alt="Autonomous Robot Vehicle - Self-navigating ground robot with computer vision"
+          class="proj-img"
+          loading="lazy"
+          decoding="async"
+          width="600"
+          height="240"
           onerror="this.parentElement.style.background='#040f06'"/>
         <div class="proj-img-tint"></div>
         <div class="proj-scanline"></div>
@@ -758,70 +817,108 @@ footer {
       </div>
     </div>
 
-    <div class="msg-terminal">
+    <div class="msg-terminal" role="form" aria-label="Contact form">
       <div class="msg-header">
         <span>COMPOSE_MESSAGE.exe</span>
-        <span>● REC</span>
+        <span aria-hidden="true">● REC</span>
       </div>
-      <div class="msg-body">
+      <!-- NOTE: For a working contact form, replace with a form service like Formspree, Netlify Forms, or a custom backend -->
+      <form class="msg-body" action="mailto:notaboringengineer@gmail.com" method="POST" enctype="text/plain">
         <div class="f-row">
-          <div class="f-field"><label class="f-label">FROM</label><input type="text" class="f-input" placeholder="your_name"/></div>
-          <div class="f-field"><label class="f-label">FREQ</label><input type="email" class="f-input" placeholder="your@email.com"/></div>
+          <div class="f-field">
+            <label class="f-label" for="contact-name">FROM</label>
+            <input type="text" id="contact-name" name="name" class="f-input" placeholder="your_name" required autocomplete="name"/>
+          </div>
+          <div class="f-field">
+            <label class="f-label" for="contact-email">FREQ</label>
+            <input type="email" id="contact-email" name="email" class="f-input" placeholder="your@email.com" required autocomplete="email"/>
+          </div>
         </div>
-        <div class="f-field"><label class="f-label">PAYLOAD</label><textarea class="f-textarea" placeholder="// enter message..."></textarea></div>
-        <button class="f-submit"><span>[ TRANSMIT ]</span></button>
-      </div>
+        <div class="f-field">
+          <label class="f-label" for="contact-message">PAYLOAD</label>
+          <textarea id="contact-message" name="message" class="f-textarea" placeholder="// enter message..." required></textarea>
+        </div>
+        <button type="submit" class="f-submit"><span>[ TRANSMIT ]</span></button>
+      </form>
     </div>
 
   </div>
 </section>
 
-<footer>
+<footer role="contentinfo">
   <div class="footer-l">© 2026 — <em>RISHAV SUBEDI</em> &nbsp;//&nbsp; ALL SYSTEMS OPERATIONAL</div>
   <div class="footer-r">MECHANICAL MIND, DIGITAL SOUL</div>
 </footer>
 
-<a href="#hero" class="btt" id="btt">▲</a>
+<a href="#hero" class="btt" id="btt" aria-label="Back to top">▲</a>
 
 <script>
-  // Cursor
+  // Cursor - optimized with requestAnimationFrame
   const cursor = document.getElementById('cursor');
-  let mx = 0, my = 0;
+  let mx = 0, my = 0, cursorVisible = false;
+  
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
+    if (!cursorVisible) {
+      cursorVisible = true;
+      requestAnimationFrame(updateCursor);
+    }
+  }, { passive: true });
+  
+  function updateCursor() {
     cursor.style.left = mx + 'px';
-    cursor.style.top  = my + 'px';
-  });
+    cursor.style.top = my + 'px';
+    if (cursorVisible) {
+      requestAnimationFrame(updateCursor);
+    }
+  }
 
-  // Nav scroll / back to top
+  // Nav scroll / back to top - throttled
+  let scrollTimeout;
   window.addEventListener('scroll', () => {
-    document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
-  });
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(() => {
+        document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
+        scrollTimeout = null;
+      }, 100);
+    }
+  }, { passive: true });
 
-  // Typed.js
-  new Typed('#typed', {
-    strings: [
-      'Bridging mechanical systems with digital intelligence.',
-      'Engineering autonomous solutions for tomorrow.',
-      'Building robots that see, think, and move.',
-      'Mechanical Mind. Digital Soul.'
-    ],
-    typeSpeed: 44, backSpeed: 22, backDelay: 2400, loop: true
-  });
+  // Typed.js - wait for DOM and script load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Typed.js after it's loaded (deferred script)
+    const initTyped = () => {
+      if (typeof Typed !== 'undefined') {
+        new Typed('#typed', {
+          strings: [
+            'Bridging mechanical systems with digital intelligence.',
+            'Engineering autonomous solutions for tomorrow.',
+            'Building robots that see, think, and move.',
+            'Mechanical Mind. Digital Soul.'
+          ],
+          typeSpeed: 44, backSpeed: 22, backDelay: 2400, loop: true
+        });
+      } else {
+        // Retry if Typed.js hasn't loaded yet
+        setTimeout(initTyped, 100);
+      }
+    };
+    initTyped();
 
-  // Scroll reveal + skill bars
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('visible');
-      e.target.querySelectorAll('.sk-fill').forEach((bar, i) => {
-        setTimeout(() => {
-          bar.style.transform = `scaleX(${bar.dataset.w})`;
-        }, i * 100 + 300);
+    // Scroll reveal + skill bars
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('visible');
+        e.target.querySelectorAll('.sk-fill').forEach((bar, i) => {
+          setTimeout(() => {
+            bar.style.transform = `scaleX(${bar.dataset.w})`;
+          }, i * 100 + 300);
+        });
       });
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+  });
 </script>
 </body>
 </html>
